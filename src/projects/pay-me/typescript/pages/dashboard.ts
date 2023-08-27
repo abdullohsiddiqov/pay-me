@@ -2,6 +2,7 @@ import { User } from "./../entities/user";
 import { CardService, UserService } from "../service";
 import { faker } from "@faker-js/faker";
 import { CardRepository } from "../repository";
+import { Card } from "../entities";
 
 export const dashboard = (
   user: User,
