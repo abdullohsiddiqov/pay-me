@@ -26,7 +26,54 @@ export const dashboard = (
 				</button>
 		</form>
 </nav>
-<div class="cards"></div>
+<div class="flex">
+<div class="users">
+<table>
+<tr>
+<td class = "tdc">
+Users
+</td>
+</tr>
+</table>
+</div>
+<div class="cards">
+<table>
+<tr>
+<td class = "tdc">
+Card Number
+</td>
+</tr>
+</table>
+</div>
+<div class="users">
+<table>
+<tr>
+<td class = "tdc">
+Card Type
+</td>
+</tr>
+</table>
+</div>
+<div class="users">
+<table>
+<tr>
+<td class = "tdc">
+Bank Name
+</td>
+</tr>
+</table>
+</div>
+<div class="users">
+<table>
+<tr>
+<td class = "tdc">
+Expiry
+</td>
+</tr>
+</table>
+</div>
+</div>
+
 
 
 `);
@@ -35,10 +82,20 @@ export const dashboard = (
   );
   for (let i = 0; i < userService.getUserList().length; i++) {
     const options = document.createElement("option");
+    const userBoard: HTMLDivElement = document.querySelector(".users");
+    const table = document.createElement("table");
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
     options.className = "option";
     options.innerText = userService.getUserList()[i].firstName;
     options.value = `${userService.getUserList()[i].firstName}`;
+    // userBoard.innerHTML = userService.getUserList()[i].firstName
     selOptions.appendChild(options);
+    tr.appendChild(td);
+    table.append(td)
+    // td.className = "span";
+    td.innerText = `${userService.getUserList()[i].firstName} `;
+    userBoard.append(table);
   }
 
   function sorted() {
